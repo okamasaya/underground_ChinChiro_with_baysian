@@ -1,0 +1,18 @@
+[
+  {
+    "file": "ArticleJPSans-Regular.ttf",
+    "source": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "source_sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a",
+    "sha256": "a3823cb00559e24ee903ef48a9342cdf65bbaa75ea32402577ff3f0d4a14eadb",
+    "glyphs": 41592,
+    "cubic_to_quadratic_max_error_font_units": 1
+  },
+  {
+    "file": "ArticleJPSans-Bold.ttf",
+    "source": "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
+    "source_sha256": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb",
+    "sha256": "77691c8594ad0b148da74c0172464ca510b77f511ef0e6556940bff1ee864e91",
+    "glyphs": 41592,
+    "cubic_to_quadratic_max_error_font_units": 1
+  }
+]
