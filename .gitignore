@@ -1,0 +1,29 @@
+# TeX working files; keep the final PDFs tracked.
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# Python / Jupyter working files.
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Local build folders and packaged duplicates.
+/build/
+/tmp/
+*.zip
+
+# OS / editor working files.
+.DS_Store
+Thumbs.db
+*~
+*.swp
