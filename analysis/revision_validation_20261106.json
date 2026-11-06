@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-06",
+  "exact_likelihood_and_state_checks": 32,
+  "bkt": {
+    "baseline": {
+      "p8": 0.9837335244344461,
+      "q9": 0.9861734957692792,
+      "r9": 0.8910127722500315,
+      "log_likelihood": -6.13525736654216,
+      "median": 38,
+      "q75": 77,
+      "rate100": 0.83518,
+      "mcse100_percentage_points": 0.08296215028553683
+    },
+    "alternative": {
+      "p8": 0.3691668274573929,
+      "q9": 0.38178349090824504,
+      "r9": 0.6230720025449935,
+      "log_likelihood": -6.135213045664757,
+      "median": 8,
+      "q75": 95,
+      "rate100": 0.789145,
+      "mcse100_percentage_points": 0.09121270990793992
+    }
+  },
+  "constant_forecast_100": {
+    "null": 0.007115818212539887,
+    "alternative": 0.9352154664745627
+  },
+  "future_simulation_rerun": false,
+  "asset_comparison_before_documentation_edit": {
+    "unchanged_asset_count": 105,
+    "changed_assets": []
+  },
+  "prior_validation": {
+    "bkt_exact_likelihood_and_state_comparisons": 32,
+    "dice_table": "passed: integer first-passage recursion",
+    "constant_forecast": "passed: integer first-passage recursion",
+    "constant_forecast_100_percent": [
+      "0.712",
+      "93.522"
+    ],
+    "stored_future_series": "200000 per model, no simulation rerun"
+  },
+  "pdf_checks": {
+    "full": {
+      "pages": 68,
+      "type3_fonts": 0,
+      "latex_warnings": [],
+      "text_characters": 62080,
+      "all_pages_rendered_and_visually_reviewed": true
+    },
+    "letter": {
+      "pages": 4,
+      "type3_fonts": 0,
+      "latex_warnings": [],
+      "text_characters": 6997,
+      "all_pages_rendered_and_visually_reviewed": true
+    }
+  }
+}

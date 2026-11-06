@@ -1,0 +1,39 @@
+{
+  "CONST20-v1": {
+    "seed": 20261103,
+    "eta": "9/10",
+    "turns": 20,
+    "all_turns_one_throw": true,
+    "low_turns": [
+      12
+    ],
+    "asset": "A12"
+  },
+  "CTX20-v1": {
+    "seed": 20261103,
+    "opponent_seed": 20261108,
+    "turns": 20,
+    "high_stakes_turns": [
+      4,
+      8,
+      12,
+      16,
+      20
+    ],
+    "eta_high": "9/10",
+    "eta_normal": "0",
+    "stakes_high": 10,
+    "stakes_normal": 1,
+    "all_high_turns": [
+      4,
+      8,
+      11,
+      12,
+      16,
+      18,
+      20
+    ],
+    "asset": "A14",
+    "opponent_seed_selection": "illustrates a high-stakes loss; not a performance sample"
+  }
+}

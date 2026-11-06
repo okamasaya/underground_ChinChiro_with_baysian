@@ -1,0 +1,310 @@
+{
+  "responses": [
+    1,
+    1,
+    0,
+    1,
+    0,
+    1,
+    1,
+    1
+  ],
+  "parameters": {
+    "baseline": {
+      "label": "基準の仮定",
+      "p0": "1/5",
+      "learn": "3/20",
+      "guess": "1/4",
+      "slip": "1/10"
+    },
+    "higher_guess": {
+      "label": "偶然正答が多い仮定",
+      "p0": "1/5",
+      "learn": "3/20",
+      "guess": "2/5",
+      "slip": "1/10"
+    },
+    "higher_slip": {
+      "label": "習得後の誤答が多い仮定",
+      "p0": "1/5",
+      "learn": "3/20",
+      "guess": "1/4",
+      "slip": "3/10"
+    }
+  },
+  "rows": [
+    {
+      "model": "baseline",
+      "trial": 0,
+      "response": null,
+      "prior": "1/5",
+      "posterior": "1/5",
+      "predict_next": "19/50",
+      "posterior_float": 0.2,
+      "predict_next_float": 0.38
+    },
+    {
+      "model": "baseline",
+      "trial": 1,
+      "response": 1,
+      "prior": "1/5",
+      "posterior": "9/19",
+      "predict_next": "463/760",
+      "posterior_float": 0.47368421052631576,
+      "predict_next_float": 0.6092105263157894
+    },
+    {
+      "model": "baseline",
+      "trial": 2,
+      "response": 1,
+      "prior": "21/38",
+      "posterior": "378/463",
+      "predict_next": "29579/37040",
+      "posterior_float": 0.816414686825054,
+      "predict_next_float": 0.7985691144708423
+    },
+    {
+      "model": "baseline",
+      "trial": 3,
+      "response": 0,
+      "prior": "1563/1852",
+      "posterior": "1042/2487",
+      "predict_next": "23039/39792",
+      "posterior_float": 0.4189786891837555,
+      "predict_next_float": 0.578985725774025
+    },
+    {
+      "model": "baseline",
+      "trial": 4,
+      "response": 1,
+      "prior": "5035/9948",
+      "posterior": "18126/23039",
+      "predict_next": "7208267/9215600",
+      "posterior_float": 0.7867528972611658,
+      "predict_next_float": 0.7821809757367941
+    },
+    {
+      "model": "baseline",
+      "trial": 5,
+      "response": 0,
+      "prior": "377259/460780",
+      "posterior": "251506/669111",
+      "predict_next": "29717851/53528880",
+      "posterior_float": 0.37588083292607655,
+      "predict_next_float": 0.5551741601916573
+    },
+    {
+      "model": "baseline",
+      "trial": 6,
+      "response": 1,
+      "prior": "1256587/2676444",
+      "posterior": "22618566/29717851",
+      "predict_next": "365179375/475485616",
+      "posterior_float": 0.7611104181119961,
+      "predict_next_float": 0.7680135060068778
+    },
+    {
+      "model": "baseline",
+      "trial": 7,
+      "response": 1,
+      "prior": "94733835/118871404",
+      "posterior": "341041806/365179375",
+      "predict_next": "126130172251/146071750000",
+      "posterior_float": 0.9339021569879186,
+      "predict_next_float": 0.863480941735825
+    },
+    {
+      "model": "baseline",
+      "trial": 8,
+      "response": 1,
+      "prior": "6893248827/7303587500",
+      "posterior": "124078478886/126130172251",
+      "predict_next": "8990687555339/10090413780080",
+      "posterior_float": 0.9837335244344461,
+      "predict_next_float": 0.8910127722500315
+    },
+    {
+      "model": "higher_guess",
+      "trial": 0,
+      "response": null,
+      "prior": "1/5",
+      "posterior": "1/5",
+      "predict_next": "1/2",
+      "posterior_float": 0.2,
+      "predict_next_float": 0.5
+    },
+    {
+      "model": "higher_guess",
+      "trial": 1,
+      "response": 1,
+      "prior": "1/5",
+      "posterior": "9/25",
+      "predict_next": "157/250",
+      "posterior_float": 0.36,
+      "predict_next_float": 0.628
+    },
+    {
+      "model": "higher_guess",
+      "trial": 2,
+      "response": 1,
+      "prior": "57/125",
+      "posterior": "513/785",
+      "predict_next": "5909/7850",
+      "posterior_float": 0.6535031847133758,
+      "predict_next_float": 0.7527388535031847
+    },
+    {
+      "model": "higher_guess",
+      "trial": 3,
+      "response": 0,
+      "prior": "2769/3925",
+      "posterior": "923/3235",
+      "predict_next": "19289/32350",
+      "posterior_float": 0.28531684698608967,
+      "predict_next_float": 0.5962596599690881
+    },
+    {
+      "model": "higher_guess",
+      "trial": 4,
+      "response": 1,
+      "prior": "6349/16175",
+      "posterior": "57141/96445",
+      "predict_next": "700963/964450",
+      "posterior_float": 0.5924723935922028,
+      "predict_next_float": 0.7268007672766862
+    },
+    {
+      "model": "higher_guess",
+      "trial": 5,
+      "response": 0,
+      "prior": "315183/482225",
+      "posterior": "105061/439145",
+      "predict_next": "1266224/2195725",
+      "posterior_float": 0.23923988659782078,
+      "predict_next_float": 0.5766769518040739
+    },
+    {
+      "model": "higher_guess",
+      "trial": 6,
+      "response": 1,
+      "prior": "775868/2195725",
+      "posterior": "1745703/3165560",
+      "predict_next": "89822591/126622400",
+      "posterior_float": 0.5514673549071886,
+      "predict_next_float": 0.7093736258355552
+    },
+    {
+      "model": "higher_guess",
+      "trial": 7,
+      "response": 1,
+      "prior": "39173631/63311200",
+      "posterior": "352562679/449112955",
+      "predict_next": "1815838961/2245564775",
+      "posterior_float": 0.78502006026524,
+      "predict_next_float": 0.8086335256127269
+    },
+    {
+      "model": "higher_guess",
+      "trial": 8,
+      "response": 1,
+      "prior": "1835226102/2245564775",
+      "posterior": "8258517459/9079194805",
+      "predict_next": "156449749049/181583896100",
+      "posterior_float": 0.9096090166995816,
+      "predict_next_float": 0.8615838320973223
+    },
+    {
+      "model": "higher_slip",
+      "trial": 0,
+      "response": null,
+      "prior": "1/5",
+      "posterior": "1/5",
+      "predict_next": "17/50",
+      "posterior_float": 0.2,
+      "predict_next_float": 0.34
+    },
+    {
+      "model": "higher_slip",
+      "trial": 1,
+      "response": 1,
+      "prior": "1/5",
+      "posterior": "7/17",
+      "predict_next": "19/40",
+      "posterior_float": 0.4117647058823529,
+      "predict_next_float": 0.475
+    },
+    {
+      "model": "higher_slip",
+      "trial": 2,
+      "response": 1,
+      "prior": "1/2",
+      "posterior": "14/19",
+      "predict_next": "911/1520",
+      "posterior_float": 0.7368421052631579,
+      "predict_next_float": 0.5993421052631579
+    },
+    {
+      "model": "higher_slip",
+      "trial": 3,
+      "response": 0,
+      "prior": "59/76",
+      "posterior": "118/203",
+      "predict_next": "8767/16240",
+      "posterior_float": 0.5812807881773399,
+      "predict_next_float": 0.5398399014778326
+    },
+    {
+      "model": "higher_slip",
+      "trial": 4,
+      "response": 1,
+      "prior": "523/812",
+      "posterior": "7322/8767",
+      "predict_next": "89347/140272",
+      "posterior_float": 0.8351773696817612,
+      "predict_next_float": 0.6369553439032737
+    },
+    {
+      "model": "higher_slip",
+      "trial": 5,
+      "response": 0,
+      "prior": "30155/35068",
+      "posterior": "12062/16975",
+      "predict_next": "4001311/6790000",
+      "posterior_float": 0.7105743740795287,
+      "predict_next_float": 0.5892946980854198
+    },
+    {
+      "model": "higher_slip",
+      "trial": 6,
+      "response": 1,
+      "prior": "255979/339500",
+      "posterior": "3583706/4001311",
+      "predict_next": "211294703/320104880",
+      "posterior_float": 0.8956329562985731,
+      "predict_next_float": 0.6600796057842042
+    },
+    {
+      "model": "higher_slip",
+      "trial": 7,
+      "response": 1,
+      "prior": "14585387/16005244",
+      "posterior": "204195418/211294703",
+      "predict_next": "11615265247/16903576240",
+      "posterior_float": 0.9664010271000499,
+      "predict_next_float": 0.6871483928657691
+    },
+    {
+      "model": "higher_slip",
+      "trial": 8,
+      "response": 1,
+      "prior": "821041243/845178812",
+      "posterior": "11494577402/11615265247",
+      "predict_next": "129352361155/185844243952",
+      "posterior_float": 0.9896095489484262,
+      "predict_next_float": 0.696025652472773
+    }
+  ],
+  "validation": {
+    "exact_filter_vs_state_path_enumeration": 24
+  }
+}
