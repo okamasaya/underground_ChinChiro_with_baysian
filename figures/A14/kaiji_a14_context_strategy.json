@@ -1,0 +1,679 @@
+{
+  "synthetic": true,
+  "seed": 20261103,
+  "opponent_seed": 20261108,
+  "prior": "1/10",
+  "eta_constant": "9/40",
+  "records": [
+    {
+      "turn": 1,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "opponent_history": [
+        [
+          3,
+          4,
+          2
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          5,
+          6
+        ]
+      ],
+      "suspect_role": "triple2",
+      "opponent_role": "none",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.1,
+      "posterior_constant": 0.0792838874680307
+    },
+    {
+      "turn": 2,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          5,
+          2,
+          1
+        ],
+        [
+          5,
+          3,
+          5
+        ]
+      ],
+      "opponent_history": [
+        [
+          4,
+          1,
+          4
+        ]
+      ],
+      "suspect_role": "point3",
+      "opponent_role": "point1",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.1,
+      "posterior_constant": 0.0625610311828657
+    },
+    {
+      "turn": 3,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          6,
+          5,
+          1
+        ],
+        [
+          2,
+          4,
+          2
+        ]
+      ],
+      "opponent_history": [
+        [
+          6,
+          1,
+          1
+        ]
+      ],
+      "suspect_role": "point4",
+      "opponent_role": "point6",
+      "result": "loss",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.1,
+      "posterior_constant": 0.049177026400194127
+    },
+    {
+      "turn": 4,
+      "high_stakes": true,
+      "stake": 10,
+      "eta": "9/10",
+      "latent_for_reproducibility_only": "456",
+      "suspect_history": [
+        [
+          6,
+          4,
+          5
+        ]
+      ],
+      "opponent_history": [
+        [
+          3,
+          3,
+          6
+        ]
+      ],
+      "suspect_role": "456",
+      "opponent_role": "point6",
+      "result": "win",
+      "bf_context": "73/10",
+      "bf_constant": "103/40",
+      "posterior_context": 0.44785276073619634,
+      "posterior_constant": 0.11752786154900748
+    },
+    {
+      "turn": 5,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          6,
+          3,
+          4
+        ],
+        [
+          2,
+          2,
+          5
+        ]
+      ],
+      "opponent_history": [
+        [
+          4,
+          4,
+          1
+        ]
+      ],
+      "suspect_role": "point5",
+      "opponent_role": "point1",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.44785276073619634,
+      "posterior_constant": 0.09355812205397845
+    },
+    {
+      "turn": 6,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          1,
+          3,
+          2
+        ]
+      ],
+      "opponent_history": [
+        [
+          3,
+          3,
+          6
+        ]
+      ],
+      "suspect_role": "123",
+      "opponent_role": "point6",
+      "result": "loss",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.44785276073619634,
+      "posterior_constant": 0.07406669121256826
+    },
+    {
+      "turn": 7,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          2,
+          1,
+          4
+        ],
+        [
+          3,
+          1,
+          1
+        ]
+      ],
+      "opponent_history": [
+        [
+          4,
+          1,
+          4
+        ]
+      ],
+      "suspect_role": "point3",
+      "opponent_role": "point1",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.44785276073619634,
+      "posterior_constant": 0.058374497004716294
+    },
+    {
+      "turn": 8,
+      "high_stakes": true,
+      "stake": 10,
+      "eta": "9/10",
+      "latent_for_reproducibility_only": "456",
+      "suspect_history": [
+        [
+          4,
+          6,
+          5
+        ]
+      ],
+      "opponent_history": [
+        [
+          5,
+          3,
+          2
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "suspect_role": "456",
+      "opponent_role": "triple4",
+      "result": "loss",
+      "bf_context": "73/10",
+      "bf_constant": "103/40",
+      "posterior_context": 0.8555145288168245,
+      "posterior_constant": 0.13765806986280624
+    },
+    {
+      "turn": 9,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          1,
+          5,
+          1
+        ]
+      ],
+      "opponent_history": [
+        [
+          6,
+          2,
+          1
+        ],
+        [
+          4,
+          6,
+          4
+        ]
+      ],
+      "suspect_role": "point5",
+      "opponent_role": "point6",
+      "result": "loss",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.8555145288168245,
+      "posterior_constant": 0.11009498329666924
+    },
+    {
+      "turn": 10,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "opponent_history": [
+        [
+          6,
+          1,
+          4
+        ],
+        [
+          4,
+          6,
+          4
+        ]
+      ],
+      "suspect_role": "point2",
+      "opponent_role": "point6",
+      "result": "loss",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.8555145288168245,
+      "posterior_constant": 0.08749088115220788
+    },
+    {
+      "turn": 11,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          6,
+          5,
+          4
+        ]
+      ],
+      "opponent_history": [
+        [
+          1,
+          5,
+          4
+        ],
+        [
+          6,
+          5,
+          1
+        ],
+        [
+          1,
+          6,
+          6
+        ]
+      ],
+      "suspect_role": "456",
+      "opponent_role": "point1",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "103/40",
+      "posterior_context": 0.8555145288168245,
+      "posterior_constant": 0.19800438362434733
+    },
+    {
+      "turn": 12,
+      "high_stakes": true,
+      "stake": 10,
+      "eta": "9/10",
+      "latent_for_reproducibility_only": "456",
+      "suspect_history": [
+        [
+          4,
+          4,
+          6
+        ]
+      ],
+      "opponent_history": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          3,
+          4,
+          2
+        ],
+        [
+          1,
+          3,
+          5
+        ]
+      ],
+      "suspect_role": "point6",
+      "opponent_role": "none",
+      "result": "win",
+      "bf_context": "73/10",
+      "bf_constant": "103/40",
+      "posterior_context": 0.9773879005168121,
+      "posterior_constant": 0.388656175987712
+    },
+    {
+      "turn": 13,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          4,
+          1,
+          6
+        ],
+        [
+          5,
+          1,
+          5
+        ]
+      ],
+      "opponent_history": [
+        [
+          4,
+          1,
+          3
+        ],
+        [
+          4,
+          6,
+          2
+        ],
+        [
+          1,
+          1,
+          5
+        ]
+      ],
+      "suspect_role": "point1",
+      "opponent_role": "point5",
+      "result": "loss",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.9773879005168121,
+      "posterior_constant": 0.33007260674613254
+    },
+    {
+      "turn": 14,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          6,
+          2,
+          2
+        ]
+      ],
+      "opponent_history": [
+        [
+          6,
+          6,
+          5
+        ]
+      ],
+      "suspect_role": "point6",
+      "opponent_role": "point5",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.9773879005168121,
+      "posterior_constant": 0.2763281495738687
+    },
+    {
+      "turn": 15,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          1,
+          1,
+          2
+        ]
+      ],
+      "opponent_history": [
+        [
+          3,
+          1,
+          2
+        ]
+      ],
+      "suspect_role": "point2",
+      "opponent_role": "123",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.9773879005168121,
+      "posterior_constant": 0.22835182425563288
+    },
+    {
+      "turn": 16,
+      "high_stakes": true,
+      "stake": 10,
+      "eta": "9/10",
+      "latent_for_reproducibility_only": "456",
+      "suspect_history": [
+        [
+          6,
+          5,
+          4
+        ]
+      ],
+      "opponent_history": [
+        [
+          3,
+          4,
+          3
+        ]
+      ],
+      "suspect_role": "456",
+      "opponent_role": "point4",
+      "result": "win",
+      "bf_context": "73/10",
+      "bf_constant": "103/40",
+      "posterior_context": 0.996840801789061,
+      "posterior_constant": 0.4324672998992019
+    },
+    {
+      "turn": 17,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          6,
+          6,
+          6
+        ]
+      ],
+      "opponent_history": [
+        [
+          2,
+          5,
+          4
+        ],
+        [
+          3,
+          1,
+          4
+        ],
+        [
+          4,
+          1,
+          5
+        ]
+      ],
+      "suspect_role": "triple6",
+      "opponent_role": "none",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.996840801789061,
+      "posterior_constant": 0.3712906466994699
+    },
+    {
+      "turn": 18,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          4,
+          6,
+          4
+        ]
+      ],
+      "opponent_history": [
+        [
+          2,
+          5,
+          2
+        ]
+      ],
+      "suspect_role": "point6",
+      "opponent_role": "point5",
+      "result": "win",
+      "bf_context": "1",
+      "bf_constant": "103/40",
+      "posterior_context": 0.996840801789061,
+      "posterior_constant": 0.6032835756568022
+    },
+    {
+      "turn": 19,
+      "high_stakes": false,
+      "stake": 1,
+      "eta": "0",
+      "latent_for_reproducibility_only": "fair",
+      "suspect_history": [
+        [
+          4,
+          2,
+          4
+        ]
+      ],
+      "opponent_history": [
+        [
+          2,
+          6,
+          4
+        ],
+        [
+          3,
+          4,
+          3
+        ]
+      ],
+      "suspect_role": "point2",
+      "opponent_role": "point4",
+      "result": "loss",
+      "bf_context": "1",
+      "bf_constant": "31/40",
+      "posterior_context": 0.996840801789061,
+      "posterior_constant": 0.5409762391054215
+    },
+    {
+      "turn": 20,
+      "high_stakes": true,
+      "stake": 10,
+      "eta": "9/10",
+      "latent_for_reproducibility_only": "456",
+      "suspect_history": [
+        [
+          6,
+          6,
+          6
+        ]
+      ],
+      "opponent_history": [
+        [
+          1,
+          5,
+          2
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          3,
+          6,
+          4
+        ]
+      ],
+      "suspect_role": "triple6",
+      "opponent_role": "none",
+      "result": "win",
+      "bf_context": "73/10",
+      "bf_constant": "103/40",
+      "posterior_context": 0.9995660499868766,
+      "posterior_constant": 0.7521520261270926
+    }
+  ]
+}
