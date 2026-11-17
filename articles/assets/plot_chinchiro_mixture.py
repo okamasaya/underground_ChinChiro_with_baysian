@@ -102,17 +102,21 @@ def comparison_figure(mixed, pure):
     fig.patch.set_facecolor("white")
     fig.text(.10, .93, "1〜3が出ても、混合戦略への疑いは残る", fontsize=21,
              fontweight="bold", ha="left")
-    fig.text(.10, .865, "通常賽のみと比較。どちらの戦略仮説も事前確率10%。",
+    fig.text(.10, .865, "同じ出目列を通常賽のみと比較。仮説の事前確率はいずれも10%。",
              fontsize=12, color="#526577", ha="left")
     ax.axvspan(6.75, 7.25, color="#fff0df", zorder=0)
     ax.plot(range(12), [float(p) for p in pure], color="#7e8a98",
             linestyle="--", marker="s", markersize=4.5, linewidth=1.8,
-            label="常に456賽", zorder=2)
+            label="「常に456賽」仮説の事後確率", zorder=2)
     ax.plot(range(12), [float(p) for p in mixed], color="#2e4a88",
             marker="o", markersize=5, linewidth=2.8,
-            label="毎回90%の確率で456賽を選ぶ", zorder=3)
-    ax.hlines(float(mixed[6]), 6, 11, color="#a3adb9", linewidth=1,
-              linestyle=(0, (3, 3)), zorder=1)
+            label="「90%で456賽」仮説の事後確率", zorder=3)
+    ax.hlines(float(mixed[6]), 6, 11, color="#a3adb9", linewidth=1.2,
+              linestyle=":", zorder=1)
+    ax.text(8.65, float(mixed[6]) + .045,
+            f"低下直前の水準（{decimal(mixed[6], percentage=True)}%）",
+            fontsize=10, color="#65717d", ha="center", va="bottom",
+            bbox={"facecolor": "white", "edgecolor": "none", "pad": 2})
     ax.set_xlim(-.15, 11.2)
     ax.set_ylim(-.025, 1.03)
     ax.set_xticks(range(12), ["観測前"] + [str(d) for d in OBSERVATIONS])
@@ -121,7 +125,7 @@ def comparison_figure(mixed, pure):
     ax.set_yticks([0, .25, .5, .75, 1])
     ax.yaxis.set_major_formatter(PercentFormatter(xmax=1, decimals=0))
     ax.set_xlabel("観測した出目（左から順番）", labelpad=14)
-    ax.set_ylabel("比較する戦略仮説に置く確率", labelpad=12)
+    ax.set_ylabel("戦略仮説の事後確率", labelpad=12)
     ax.legend(loc="lower left", bbox_to_anchor=(-.01, 1.05), ncol=2,
               frameon=False, fontsize=11, handlelength=2.6)
     ax.annotate("34.3%", xy=(7, float(mixed[7])), xytext=(-10, -12),
@@ -132,8 +136,12 @@ def comparison_figure(mixed, pure):
                 xytext=(8.6, .42), color="#2e4a88", fontsize=11,
                 arrowprops={"arrowstyle": "->", "color": "#2e4a88", "lw": 1.2},
                 bbox={"facecolor": "white", "edgecolor": "none", "pad": 3})
+    ax.annotate("2は仮説と両立しない\n以後も事後確率は0%", xy=(8, 0),
+                xytext=(8.1, .13), color="#65717d", fontsize=10,
+                arrowprops={"arrowstyle": "->", "color": "#65717d", "lw": 1},
+                bbox={"facecolor": "white", "edgecolor": "none", "pad": 3})
     style(ax)
-    fig.text(.10, .055, "説明用の出目列。各曲線は通常賽のみとの別々の2仮説比較。",
+    fig.text(.10, .055, "実際の使用割合の図ではありません。各曲線は通常賽のみとの別々の2仮説比較。",
              fontsize=10, color="#526577")
     fig.savefig(DESTINATION / "mixture-comparison.png", dpi=160, facecolor="white")
     plt.close(fig)
