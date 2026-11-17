@@ -1,7 +1,8 @@
-"""A22: finite-sample BKT ambiguity and prospective first passages.
+"""A22: BKT state probabilities, next-answer forecasts and future first passages.
 A23: exact conditional-forecast calibration monitor illustration.
-Run the numerical validation script first. Scientific plots use measured data,
-not image generation. PDF text is Unicode-searchable TrueType.
+Use the stored model calculations; no simulation rerun is needed for plotting.
+Select a single figure with --figure A22 or --figure A23 (default: both).
+PDF text is Unicode-searchable TrueType.
 """
 from pathlib import Path
 from fractions import Fraction as F
@@ -47,21 +48,43 @@ def save(fig,code,name):
 
 
 def a22():
-    fig=plt.figure(figsize=(160/25.4,235/25.4))
+    from bkt_sequential_validation import OBS, PARAMS, exact_filter, hidden_enumeration
+    curves={key:exact_filter(params,OBS) for key,params in PARAMS.items()}
+    for key,params in PARAMS.items():
+        for n,row in enumerate(curves[key],1):
+            likelihood,posterior=hidden_enumeration(params,OBS[:n])
+            assert likelihood==row['likelihood'] and posterior==row['posterior']
+            for field in ('posterior','predict_next','q_next','likelihood'):
+                assert row[field]==F(DATA['exact_eight_answer_rows'][key][n-1][field])
+    fig=plt.figure(figsize=(160/25.4,250/25.4))
     fig.text(.5,.97,'過去の尤度が近くても、状態の解釈は分かれる',ha='center',fontsize=12,fontweight='bold')
-    fig.text(.5,.932,'同じ8回答で比較し、将来の回答だけでモデルを見分ける',ha='center',color=GRAY)
-    ax=fig.add_axes([.16,.58,.78,.26])
+    fig.text(.5,.935,'状態の推定・次回予測・将来のモデル比較を分ける',ha='center',color=GRAY)
+    ax=fig.add_axes([.16,.69,.78,.18])
     for key,c,label in [('baseline',NAVY,'基準'),('alternative',ORANGE,'別解')]:
-        rows=DATA['exact_eight_answer_rows'][key]
+        rows=curves[key]
         ys=[float(F(row['posterior'])) for row in rows]
-        ax.plot(range(1,9),ys,'-o',color=c,ms=3,label=f'{label}：'+r'$p_8$'+f'={fixed(ys[-1])}')
-    ax.set(xlim=(.8,8.2),ylim=(0,1.05),xlabel='観測した解答数',ylabel='現在の習得状態の確率')
+        ax.plot(range(1,9),ys,'-o',color=c,ms=3)
+        ax.annotate(f'{label}：'+r'$p_8$'+f'={fixed(ys[-1])}',(8,ys[-1]),
+                    xytext=(-4,6),textcoords='offset points',ha='right',color=c)
+    ax.set(xlim=(.8,8.2),ylim=(0,1.16),xlabel='観測した解答数',ylabel='現在の習得状態の確率')
+    ax.set_yticks([0,.25,.5,.75,1])
     ax.set_title('A　分数による厳密な状態推定',loc='left',pad=12)
-    ax.legend(loc='lower right');style(ax);ax.set_xticks(range(1,9))
+    style(ax);ax.set_xticks(range(1,9))
     for x,y in enumerate(DATA['responses'],1):
-        fig.text(.16+.78*(x-.8)/7.4,.889,'正' if y else '誤',ha='center',color=GREEN if y else ORANGE)
-    fig.text(.5,.512,'過去8回答の尤度比：1.000（差は約 '+r'$4.432\times10^{-5}$'+'）',ha='center')
-    ax2=fig.add_axes([.16,.20,.78,.23])
+        fig.text(.16+.78*(x-.8)/7.4,.907,'正' if y else '誤',ha='center',color=GREEN if y else ORANGE)
+    forecast=fig.add_axes([.16,.425,.78,.17])
+    for key,c,label in [('baseline',NAVY,'基準'),('alternative',ORANGE,'別解')]:
+        ys=[float(row['predict_next']) for row in curves[key]]
+        forecast.plot(range(1,9),ys,'-o',color=c,ms=3)
+        forecast.annotate(f'{label}：'+r'$r_9$'+f'={fixed(ys[-1])}',(8,ys[-1]),
+                          xytext=(-4,6),textcoords='offset points',ha='right',color=c)
+    forecast.set(xlim=(.8,8.2),ylim=(0,1.16),xlabel='観測した解答数（その次の問題を予測）',
+                 ylabel='次回正答の予測確率')
+    forecast.set_yticks([0,.25,.5,.75,1])
+    forecast.set_title('B　学習遷移後の観測予測：状態確率とは異なる',loc='left',pad=10)
+    style(forecast);forecast.set_xticks(range(1,9))
+    fig.text(.5,.365,'過去8回答の尤度比：1.000（差は約 '+r'$4.432\times10^{-5}$'+'）',ha='center')
+    ax2=fig.add_axes([.16,.14,.78,.16])
     times=np.load(ROOT/'analysis/bkt_future_first_passage.npz')
     ns=np.arange(201)
     for key,c,label in [('baseline',NAVY,'基準が真'),('alternative',ORANGE,'別解が真')]:
@@ -73,9 +96,9 @@ def a22():
         ax2.fill_between(ns,center-half,center+half,color=c,alpha=.22,lw=0)
         ax2.plot(ns,p,color=c,label=label,lw=1.5)
     ax2.set(xlim=(0,200),ylim=(0,1.03),xlabel='追加の解答数',ylabel='正しいモデル側への初到達率')
-    ax2.set_title('B　将来尤度比が10倍に達するまで',loc='left',pad=10)
-    ax2.legend(loc='lower right');style(ax2)
-    fig.text(.09,.112,'各生成モデル20万系列。学習遷移と両モデルの更新を継続。\n帯は到達率のモンテカルロ計算に対する点ごとの95.000% Wilson区間。\n同じスキル・固定パラメータの例であり、必要問題数の一般則ではない。',
+    ax2.set_title('C　追加回答で、正しい方向の将来尤度比が10倍に達するまで',loc='left',pad=10)
+    ax2.legend(loc='lower right',frameon=False);style(ax2)
+    fig.text(.09,.068,'A/Bの2曲線は固定候補の比較であり、信用区間ではない。\nCは保存済み各20万系列。帯は到達率の点ごとの95.000% Wilson区間。\n同じスキル・固定パラメータの例であり、状態の正解を観測した検証ではない。',
              va='top',fontsize=9,color=GRAY,linespacing=1.65)
     save(fig,'A22','kaiji_a22_bkt_ambiguity_future')
 
@@ -122,4 +145,9 @@ def a23():
 
 
 if __name__=='__main__':
-    a22();a23()
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--figure',choices=('A22','A23','all'),default='all')
+    args=parser.parse_args()
+    if args.figure in ('A22','all'): a22()
+    if args.figure in ('A23','all'): a23()
