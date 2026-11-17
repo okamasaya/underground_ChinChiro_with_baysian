@@ -3,7 +3,7 @@
 % Self-contained Letter; numerical results validated against the stored calculations.
 % Figure coordinates below are empirical CDFs of the stored 200,000 series.
 % Abstract, introduction and conclusion revised to clarify scope and motivation.
-% Revision 2026-11-06: reading guidance is maintained in the repository README.
+% Revision 2026-11-17: distinguish strategy posteriors, usage rates and predictions.
 \documentclass[10pt,a4paper]{article}
 \usepackage[a4paper,left=21mm,right=21mm,top=19mm,bottom=18mm,headheight=13pt,headsep=5mm,footskip=8mm]{geometry}
 \usepackage{fontspec}
@@ -41,7 +41,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\sffamily\scriptsize 記録から見えない状態を推定する}
-\fancyhead[R]{\sffamily\scriptsize Letter版\enspace |\enspace 2026年11月6日}
+\fancyhead[R]{\sffamily\scriptsize Letter版\enspace |\enspace 2026年11月17日}
 \fancyfoot[C]{\sffamily\small\thepage}
 \renewcommand{\headrulewidth}{0.3pt}
 \newcommand{\given}{\mid}
@@ -98,6 +98,8 @@ $H_0$を常に通常賽、$H_1$を各観測で確率$\eta$により456賽を選�
  \pi_t=\frac{O_t}{1+O_t}.
  \label{eq:odds}
 \end{equation}
+$\eta$は仮説内の使用率、$\pi_t$は記録を見た後の仮説への支持である。
+同じ記録に純粋仮説$\eta=1$を当てはめれば、$\Lo$で尤度が0となり、以後の$\Hi$でも復活しない。実際に常に456賽を使うなら$\Lo$は出ないが、ここでは観測済みの記録から仮説を評価している。
 例えば$\eta=0.900$では、$\Hi$はオッズを1.900倍、$\Lo$は0.100倍にする。
 反対向きの証拠は対称ではなく、確率への一定量の加減算にもならない。
 
@@ -147,9 +149,8 @@ $\pi_0=0.100,h=0.990$なら$A=891$で、期間無制限の誤警報上界は$1/8
 \bottomrule
 \end{tabular}
 \end{center}
-観測前に決まる局面に応じて$\eta$を変えても、条件付き期待倍率が1なら保証を保てる。
-結果を見てから都合のよい局面・仮説を選び直す操作は、この保証に含まれない。
-未知の$\eta$を扱う場合は、事前に固定した分布で尤度比を混合する方法がある。
+この誤警報率は、終点だけでなく途中の到達も数える。観測前に決まる局面に応じて$\eta$を変えても、条件付き期待倍率が1なら保証を保てる。
+結果を見てから局面・仮説・開始点を選び直す操作は含まれない。未知の$\eta$には、事前に固定した分布による尤度比の混合を使える。
 
 
 \section{BKT：習得状態と正答予測を分ける}
@@ -166,7 +167,7 @@ BKT（Bayesian Knowledge Tracing）は、特定スキルの潜在習得状態$L_
  r_{t+1}=P(Y_{t+1}=1\given Y_{1:t})=(1-S)q_{t+1}+G(1-q_{t+1}).
  \label{eq:bkt}
 \end{align}
-状態確率$p_t$と次回正答予測$r_{t+1}$は異なる量である。
+状態確率$p_t$はモデル内の二値状態への確率であり、理解度の得点や次回正答予測$r_{t+1}$とは異なる。
 また、$T$はモデルの遷移パラメータであり、特定の解説の因果効果を自動的に表すものではない。
 
 \begin{center}

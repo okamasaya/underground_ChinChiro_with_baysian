@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-17",
+  "base_commit": "4f9d045e569dc62b9da17151761d4af9ab14ade3",
+  "a06": {
+    "saved_sequence": "HHLHHHHHHHHHHHHHHHHH",
+    "pure_posterior_after_low": 0,
+    "mixed_before_low": 0.28628072957969863,
+    "mixed_after_low": 0.0385642559555603,
+    "mixed_after_four_high": 0.34328562563657056,
+    "recovery_high_count": 4,
+    "bayes_odds_closed_form_checked": true,
+    "pure_prefix_checks": 20
+  },
+  "bkt": {
+    "baseline": {
+      "p8": 0.9837335244344461,
+      "r9": 0.8910127722500315
+    },
+    "alternative": {
+      "p8": 0.3691668274573929,
+      "r9": 0.6230720025449935
+    }
+  },
+  "exact_likelihood_and_state_checks": 32,
+  "letter_empirical_cdf_coordinates_checked": 802,
+  "letter_empirical_cdf_unchanged": true,
+  "existing_numerical_data_unchanged": true,
+  "existing_csv_working_files_preserved": true,
+  "future_simulation_rerun": false,
+  "pdf_checks": {
+    "letter": {
+      "pages": 4,
+      "latex_warnings": [],
+      "type3_fonts": 0,
+      "all_pages_rendered": true,
+      "all_pages_layout_contact_sheets_reviewed": true,
+      "changed_text_pdf_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "text_outside_page_bounds": 0
+    },
+    "full": {
+      "pages": 68,
+      "latex_warnings": [],
+      "type3_fonts": 0,
+      "all_pages_rendered": true,
+      "all_pages_layout_contact_sheets_reviewed": true,
+      "changed_text_pdf_pages": [
+        1,
+        3,
+        10,
+        13,
+        16,
+        17,
+        55
+      ],
+      "text_outside_page_bounds": 0
+    }
+  },
+  "unchanged_existing_numerical_files_count": 9,
+  "figure_number_and_page_checks": 24,
+  "updated_figures": [
+    "A06",
+    "A22"
+  ],
+  "artifact_sha256": {
+    "kaiji_bayes_letter_20261105.tex": "c4b316cda883e82daceafaae4fd31c4b3ef0b5cfb2fb97480c38c2dc3a9731f1",
+    "kaiji_bayes_letter_20261105.pdf": "77bc67f34c9976c04a2ea12d09c560960b23c97bb2c57ad8f360d5e98bad3691",
+    "kaiji_ungr_456dice.tex": "680a48f4f2131b0ecea0958f2bb06523a9f7270af03e31197a556a7977888631",
+    "kaiji_ungr_456dice.pdf": "4b81dba00da9c3bb32d5d393ee70aaff7cd4cc4e520e13ecf579aa972505b1f7",
+    "figures/A06/kaiji_a06_mixed_single_die.py": "09057e1e3dc5350c672ae0986b40af8757de3b2aaab70c784e3a26fdfe79108a",
+    "analysis/bkt_validation_figures.py": "e2cd076768166f347001bc915e17d930bac7810ee8cca0b6b494ac37681e40ab",
+    "figures/A06/kaiji_a06_mixed_single_die.pdf": "9d5bedb4859b33fa0a6cf30427e49f065bf5847bae9d7fbaf600b65607220ccd",
+    "figures/A06/kaiji_a06_mixed_single_die.png": "58b3926be34ca5c3c615d4e30cfda8743fdece9a072188dcd095995070b6620e",
+    "figures/A22/kaiji_a22_bkt_ambiguity_future.pdf": "452fb3a5c44da5b0e65c57dfb15687058b9db934618a63282b7c78761d5c5f52",
+    "figures/A22/kaiji_a22_bkt_ambiguity_future.png": "2af8015f14c31958291af78d5c744ef372dc52d397baa729c1f1fb1716abaf50",
+    "figures/A22/kaiji_a22_bkt_ambiguity_future.svg": "b7c9d1d381291a0ae3d13955b536e25bd7a2fe0e291b43714ca710bada38e91b"
+  }
+}

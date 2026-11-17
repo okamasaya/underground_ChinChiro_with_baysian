@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
-'A06: asymmetric evidence in an independently selected single-die mixture.\n\nRequirements: Python 3 and Matplotlib. No notebook or external data needed.\nRun this source to recreate the PNG and vector PDF beside it.\nFinal width 160 mm; height 195 mm; PNG 400 dpi; ordinary labels >= 9 pt.\n\nH0 always uses a fair die. Under H1, select a 456 die with probability 0.900\nand a fair die with probability 0.100, independently for EVERY observation.\nThis is not the shared dice-set/turn model. The plotted posterior is P(H1|data),\nnot the probability that the most recent observation used a 456 die.\n'
+"""A06: pure and mixed strategy posteriors for the same single-die sequence.
+
+Requirements: Python 3 and Matplotlib. No notebook or external data needed.
+Run this source to recreate the PNG and vector PDF beside it.
+Final width 160 mm; height 205 mm; PNG 400 dpi; ordinary labels >= 9 pt.
+
+H0 always uses a fair die. Under H1, select a 456 die with probability 0.900
+and a fair die with probability 0.100, independently for EVERY observation.
+The pure comparison evaluates always-456 on the same saved observations.
+Each curve is a separate comparison against H0, not an actual usage fraction.
+This is not the shared dice-set/turn model; neither curve infers the type
+used for the most recent individual observation.
+"""
 
 # Shared presentation policy: three decimals; counts and fractions stay exact.
 import sys as _precision_sys
@@ -19,7 +31,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 from matplotlib.ticker import FixedLocator, StrMethodFormatter, FormatStrFormatter
 
-WIDTH_MM, HEIGHT_MM, DPI = 160, 195, 400
+WIDTH_MM, HEIGHT_MM, DPI = 160, 205, 400
 BASENAME = "kaiji_a06_mixed_single_die"
 OUT = Path(__file__).resolve().parent
 INK, GRAY, GRID = "#17212B", "#6B7280", "#E2E6EB"
@@ -75,8 +87,23 @@ def exact_data():
     return ns, probs, odds, recovery
 
 
+def pure_probabilities():
+    """Evaluate always-456 on the SAME saved outcomes, not a new simulation."""
+    values = [PRIOR]
+    for n, outcome in enumerate(SEQUENCE, 1):
+        likelihood = Fraction(outcome == "H")
+        weight = values[-1] * likelihood
+        values.append(weight / (weight + (1 - values[-1]) / 2))
+        expected = (PRIOR * 2**n / (1 - PRIOR + PRIOR * 2**n)
+                    if "L" not in SEQUENCE[:n] else Fraction(0))
+        assert values[-1] == expected
+    assert all(p == 0 for p in values[3:])
+    return values
+
+
 def create_figure():
     ns, probs, odds, recovery = exact_data()
+    pure = pure_probabilities()
     fig = plt.figure(figsize=(WIDTH_MM / 25.4, HEIGHT_MM / 25.4), dpi=DPI)
     fig.patch.set_facecolor("white")
     texts = []
@@ -89,13 +116,13 @@ def create_figure():
         texts.append(item)
         return item
 
-    text(0.5, 0.953, "Asymmetric evidence in a\nsingle-die mixture",
-         fontsize=13.5, fontweight="bold", linespacing=1.3)
-    text(0.5, 0.897, '$p_0=0.100$   |   $H_0$: fair   |   $H_1$: 90.000% 456 + 10.000% fair',
+    text(0.5, 0.953, "同じ記録で比べる\n純粋仮説と混合仮説の事後確率",
+         fontsize=12.5, fontweight="bold", linespacing=1.3)
+    text(0.5, 0.897, '共通の比較対象：通常賽のみ　|　各仮説の事前確率 0.100',
          color=GRAY)
-    text(0.5, 0.870, "Select the die type independently for each observation.", color=GRAY)
+    text(0.5, 0.870, "観測した同じ出目列を評価する。実際の使用割合を描く図ではない。", color=GRAY)
 
-    text(0.12, 0.831, "A   Posterior along the saved sequence",
+    text(0.12, 0.831, "A　仮説への支持：通常賽のみとの別々の2仮説比較",
          ha="left", fontsize=9.5, fontweight="bold")
     text(0.12, 0.803, "Data", ha="right", color=GRAY)
     # Outcome ribbon aligned to the same integer observation positions as the plot.
@@ -105,9 +132,15 @@ def create_figure():
              fontweight="bold" if outcome == "L" else "normal")
 
     ax = fig.add_axes([0.12, 0.510, 0.84, 0.273])
+    ax.plot(ns, [float(v) for v in pure], color=GRAY, linestyle="--",
+            linewidth=1.2, marker="s", markersize=2.8,
+            label="純粋仮説：常に456賽", zorder=2)
     curve, = ax.plot(ns, [float(v) for v in probs], color=PURPLE,
                      linewidth=1.6, marker="o", markersize=3.1,
-                     clip_on=False, zorder=3)
+                     label="混合仮説：使用率0.900", clip_on=False, zorder=3)
+    ax.hlines(float(probs[2]), 2, 7, color="#A3ADB9", linewidth=.9,
+              linestyle=":", zorder=1)
+    legend = ax.legend(loc="upper left", fontsize=9, frameon=False)
     ax.axvline(3, color=RED, linewidth=0.9, linestyle=(0, (3, 3)), alpha=0.7)
     low_point, = ax.plot([3], [float(probs[3])], marker="o", markersize=5,
                          color=RED, zorder=5)
@@ -120,11 +153,16 @@ def create_figure():
                     fontsize=9, color=INK, ha="left", va="center",
                     bbox={"facecolor": "white", "edgecolor": "none", "pad": 1.5},
                     arrowprops={"arrowstyle": "-", "color": GRAY, "lw": 0.8}),
-        ax.annotate(f'Low at n = 3\np = {_fmt_number(float(probs[3]))}',
-                    xy=(3, float(probs[3])), xytext=(11.4, 0.08),
+        ax.annotate(f'混合：Lo直後 p = {_fmt_number(float(probs[3]))}',
+                    xy=(3, float(probs[3])), xytext=(9.8, 0.09),
                     fontsize=9, color=RED, ha="left", va="bottom",
                     bbox={"facecolor": "white", "edgecolor": "none", "pad": 1.5},
                     arrowprops={"arrowstyle": "-", "color": RED, "lw": 0.8}),
+        ax.annotate("純粋仮説はLoで否定\n以後も事後確率は0",
+                    xy=(18, 0), xytext=(13.0, 0.23),
+                    fontsize=9, color=GRAY, ha="left", va="center",
+                    bbox={"facecolor": "white", "edgecolor": "none", "pad": 1.5},
+                    arrowprops={"arrowstyle": "-", "color": GRAY, "lw": 0.8}),
         ax.annotate("4 High after Low\nexceed the pre-Low level",
                     xy=(7, float(probs[7])), xytext=(9.8, 0.39),
                     fontsize=9, color=PURPLE, ha="left", va="center",
@@ -138,7 +176,7 @@ def create_figure():
     ax.yaxis.set_major_locator(FixedLocator([0, 0.2, 0.4, 0.6, 0.8, 1.0]))
     ax.yaxis.set_major_formatter(FormatStrFormatter("%.1f"))
     ax.set_xlabel("Number of observed die outcomes", labelpad=5)
-    ax.set_ylabel("Posterior probability of H1", labelpad=6)
+    ax.set_ylabel("各戦略仮説の事後確率", labelpad=6)
     ax.set_axisbelow(True)
     ax.grid(color=GRID, linewidth=0.65)
     ax.tick_params(length=3, pad=3)
@@ -148,7 +186,7 @@ def create_figure():
         ax.spines[side].set_color("#9AA5B1")
 
     text(0.5, 0.442,
-         f'Final posterior: $p_{{20}}={_fmt_number(float(probs[-1]))}$   |   n = 0 is the prior.')
+         f'水平点線：混合のLo直前（p = {_fmt_number(float(probs[2]))}）。横軸0は事前確率。')
     text(0.08, 0.400, r"B   Evidence multipliers for odds $O_n=p_n/(1-p_n)$",
          ha="left", fontsize=9.5, fontweight="bold")
 
@@ -179,11 +217,11 @@ def create_figure():
     text(0.5, 0.080,
          "Multipliers act on odds, not directly on probabilities.", color=GRAY)
     text(0.5, 0.050,
-         "One illustrative sequence; not an average detection time.", color=GRAY)
+         "説明用の系列。混合の最終値1.000は丸め表示で、1未満。", color=GRAY)
 
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
-    texts += annotations + [ax.xaxis.label, ax.yaxis.label]
+    texts += annotations + legend.get_texts() + [ax.xaxis.label, ax.yaxis.label]
     texts += ax.get_xticklabels() + ax.get_yticklabels()
     for item in texts:
         if item.get_fontsize() < 9:
@@ -221,6 +259,7 @@ def main():
         "posterior_after_four_high": float(probs[7]),
         "final_posterior": float(probs[-1]), "recovery_high_count": recovery,
         "exact_bayes_odds_closed_form_agree": True, "integer_ticks_checked": True,
+        "same_sequence_pure_hypothesis_checked": True,
         "text_bounds_checked": True,
     }))
 

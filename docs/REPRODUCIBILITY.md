@@ -33,7 +33,7 @@ python -m pip install -r requirements.txt
 | 賽の逐次判定と使用率の感度 | [sequential_performance.json](../analysis/sequential_performance.json)、[frequency_sensitivity.csv](../analysis/frequency_sensitivity.csv) |
 | BKTの説明用感度比較 | [bkt_sensitivity.json](../analysis/bkt_sensitivity.json)、[CSV](../analysis/bkt_sensitivity.csv) |
 | BKTの有限標本の曖昧さ・将来比較・予測監視 | [bkt_sequential_validation.json](../analysis/bkt_sequential_validation.json)、[CSV](../analysis/bkt_future_first_passage.csv)、[NPZ](../analysis/bkt_future_first_passage.npz) |
-| 現行版との照合記録 | [revision_validation_20261106.json](../analysis/revision_validation_20261106.json) |
+| 現行版との照合記録 | [revision_validation_20261117.json](../analysis/revision_validation_20261117.json)、[11月6日版](../analysis/revision_validation_20261106.json) |
 
 ノートブックは導入用の基礎モデルであり、Full paperの全結果を一括で再現するものではない。詳しい計算条件は[analysis/README.md](../analysis/README.md)にまとめている。
 
@@ -69,6 +69,13 @@ python figures/A01/kaiji_a01_observation_units.py
 python analysis/discussion_figures.py
 python analysis/make_extension_figures.py
 python analysis/bkt_validation_figures.py
+```
+
+11月17日改訂のA06/A22だけを再生成する場合は、次を実行します。A06は同じ保存系列に対する純粋仮説と混合仮説を描き、A22は保存済みの8回答と将来比較データから状態確率・次回正答予測・将来到達率を描きます。大規模な将来模擬実験は再実行しません。
+
+```bash
+python figures/A06/kaiji_a06_mixed_single_die.py
+python analysis/bkt_validation_figures.py --figure A22
 ```
 
 同じ役割の個別入口がA16〜A23にもある。A22/A23の作図は保存済みの計算結果を参照する。扉絵B01と参考写真P01は、数値計算から再生成する図ではない。
